@@ -1,4 +1,4 @@
-{% set version = "0.1.2" %}
+{% set version = "0.2.0" %}
 
 package:
   name: compaction
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/compaction/compaction-{{ version }}.tar.gz
-  sha256: f13dfad27140295f850a1ea8a8b140d5ce483b3d3a4f2ca701203b7a9493ee87
+  sha256: b9cf6b28ef77ff5c072dcb752959728487754ccdede53705ec85130819eaaed9
 
 build:
   noarch: python
