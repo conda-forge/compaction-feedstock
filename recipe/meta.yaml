@@ -1,12 +1,13 @@
-{% set version = "0.1.2" %}
+{% set name = "compaction" %}
+{% set version = "0.2.0" %}
 
 package:
-  name: compaction
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/compaction/compaction-{{ version }}.tar.gz
-  sha256: f13dfad27140295f850a1ea8a8b140d5ce483b3d3a4f2ca701203b7a9493ee87
+  url: https://github.com/mcflugen/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: ea2fd5acc94255b50bd6d61f8f63df7b0419a45a177e9e9a6edb2a9dc64ce5b6
 
 build:
   noarch: python
@@ -29,11 +30,20 @@ requirements:
     - scipy
 
 test:
-  commands:
-    - compact --help
-    - compact --version
+  requires:
+    - pytest
+    - pytest-benchmark
+    - pytest-datadir
+    - pytest-mypy
   imports:
     - compaction
+  commands:
+    - compact --help
+    - compact show --help
+    - compact setup --help
+    - compact run --help
+    - mkdir example && compact run $(compact setup example)
+    - pytest --mypy --pyargs compaction --doctest-modules -o doctest_optionflags="NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE"
 
 about:
   home: http://github.com/mcflugen/compaction
