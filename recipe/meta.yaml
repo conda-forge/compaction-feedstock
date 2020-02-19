@@ -14,7 +14,7 @@ build:
   number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
-    - compact = compaction.cli:main
+    - compact = compaction.cli:compact
 
 requirements:
   host:
