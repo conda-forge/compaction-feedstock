@@ -34,16 +34,15 @@ test:
     - pytest
     - pytest-benchmark
     - pytest-datadir
-    - pytest-mypy
   imports:
     - compaction
   commands:
-    - compact --help
-    - compact show --help
-    - compact setup --help
-    - compact run --help
-    - mkdir example && compact run $(compact setup example)
-    - pytest --mypy --pyargs compaction --doctest-modules -o doctest_optionflags="NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE"
+    - compaction --help
+    - compaction generate --help
+    - compaction setup --help
+    - compaction run --help
+    - mkdir example && compaction setup && compaction run
+    - pytest --pyargs compaction --doctest-modules -o doctest_optionflags="NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE"
 
 about:
   home: http://github.com/mcflugen/compaction
