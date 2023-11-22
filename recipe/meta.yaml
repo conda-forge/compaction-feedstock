@@ -26,8 +26,8 @@ requirements:
     - landlab
     - numpy
     - pandas
-    - pyyaml
     - scipy
+    - tomlkit
 
 test:
   requires:
@@ -49,7 +49,7 @@ about:
   home: http://github.com/mcflugen/compaction
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.md
   summary: Compact columns of sediment
   description: |
     Sediment compaction and corresponding porosity variations are modeled
