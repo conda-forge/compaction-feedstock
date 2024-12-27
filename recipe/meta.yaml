@@ -11,17 +11,17 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - compact = compaction.cli:compact
 
 requirements:
   host:
-    - python >=3
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3
+    - python >={{ python_min }}
     - click
     - landlab
     - numpy
@@ -34,6 +34,7 @@ test:
     - pytest
     - pytest-benchmark
     - pytest-datadir
+    - python {{ python_min }}
   imports:
     - compaction
   commands:
